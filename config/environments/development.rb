@@ -34,4 +34,7 @@ DrinkMixer::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+  #tells paperclip where to look for imagemagic
+  Paperclip.options[:command_path] = "/c/windows/system32/convert"
 end
