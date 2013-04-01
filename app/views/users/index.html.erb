@@ -16,7 +16,11 @@
 <% @users.each do |user| %>
   <tr>
     <!--<td><%= user.username %></td>-->
-    <td><%= image_tag user.pic.url, size: "100x100" %></td>
+    <% if user.pic? %>
+      <td><%= image_tag user.pic.url, size: "100x100" %></td>
+    <% else %>
+      <td><%= image_tag "default.jpg", size: "100x100" %></td>
+    <% end %>
     <td><%= link_to user.username, user %></td>
   </tr>
 <% end %>

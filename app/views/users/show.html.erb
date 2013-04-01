@@ -14,8 +14,11 @@
   <b>Salt:</b>
   <%= @user.salt %>
 </p>
-
-<%= image_tag @user.pic.url, size: "300x300" %>
+<% if @user.pic? %>
+	<%= image_tag @user.pic.url, size: "300x300" %>
+<% else %>
+	<%= image_tag "default.jpg", size: "300x300" %>
+<% end %>
 <br />
 
 <% if (session[:user_id] == @user.id) %>
