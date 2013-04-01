@@ -7,8 +7,20 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+	<div id="banner">
+		<!-- this is the place where I put the header info -->
+		<h1>Make Me a Drink!</h2>
+	</div>
 
-<%= yield %>
+	<div id="side_bar">
+		<ul>
+			<li>Link 1</li>
+			<li>Link 2</li>
+		</ul>
+	</div>
 
+	<div id="content">
+		<%= yield %>
+	</div>
 </body>
 </html>
