@@ -25,6 +25,11 @@ class User < ActiveRecord::Base
   attr_reader   :password
 
   validate  :password_must_be_present
+
+  has_attached_file :pic, :styles =>
+    { :medium => "300x300>", :thumb => "100x100>" }
+
+  has_attached_file :attach  
   
   def User.authenticate(name, password)
     if user = find_by_username(name)
