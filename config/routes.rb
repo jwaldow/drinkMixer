@@ -1,13 +1,22 @@
 DrinkMixer::Application.routes.draw do
   get "admin/index"
 
-  get "sessions/new"
+  # post "sessions/new"
 
-  get "sessions/create"
+  # get "sessions/create"
 
-  get "sessions/destroy"
+  # get "sessions/destroy"
+
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
 
   resources :users
+
+  #get "users#index"
+
 
 
   # The priority is based upon order of creation:

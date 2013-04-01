@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   validate  :password_must_be_present
   
   def User.authenticate(name, password)
-    if user = find_by_name(name)
+    if user = find_by_username(name)
       if user.hashed_password == encrypt_password(password, user.salt)
         user
       end
