@@ -54,7 +54,7 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    #return unless assert_specific_logged_in(params[:id])
+    return unless assert_specific_logged_in(User.find_by_id(params[:id]))
     @user = User.find(params[:id])
   end
 
@@ -80,7 +80,7 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.xml
   def update
-    #return unless assert_specific_logged_in(params[:id])
+    return unless assert_specific_logged_in(User.find_by_id(params[:id]))
     @user = User.find(params[:id])
 
     respond_to do |format|
@@ -99,7 +99,7 @@ class UsersController < ApplicationController
   # DELETE /users/1
   # DELETE /users/1.xml
   def destroy
-    #return unless assert_specific_logged_in(params[:id])
+    return unless assert_specific_logged_in(User.find_by_id(params[:id]))
     @user = User.find(params[:id])
     @user.destroy
 
@@ -119,10 +119,10 @@ class UsersController < ApplicationController
     return true
   end
 
-  def assert_specific_logged_in(request_user_id)
+  def assert_specific_logged_in(request_user)
     return unless assert_logged_in
-    unless session[:user_id] === request_user_id
-      redirect_to users_url
+    unless session[:user_id] === request_user.id
+      redirect_to users_url, :notice => "You Can Only Edit Yourself"
       return false
     end
     return true
