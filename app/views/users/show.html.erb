@@ -15,7 +15,7 @@
   <%= @user.salt %>
 </p>
 
-<%= image_tag @user.pic.url(:medium) %>
+<%= image_tag @user.pic.url, size: "300x300" %>
 <br />
 
 <% if (session[:user_id] == @user.id) %>
