@@ -11,23 +11,25 @@
  *= require_self
  *= require_tree .
  */
+ body {
+ 	background: #000000;
+ }
+
  #banner {
- 	background: #9c9;
+ 	background: #A60303;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	border-bottom: 2px solid;
 	font: small-caps 40px/40px "Times New Roman", serif;
-	color: #282;
+	color: #000000;
 	text-align: center;
  }
 
  #side_bar {
- 	background: #141;
+ 	background: #BF5A5A;
  	float: left;
 	padding-top: 1em;
 	padding-left: 1em;
 	padding-bottom: 1em;
 	width: 16em;
-	background: #141;
  }
 
