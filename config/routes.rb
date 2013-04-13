@@ -1,4 +1,7 @@
 DrinkMixer::Application.routes.draw do
+  resources :cabinets
+
+
   get "admin/index"
 
   # post "sessions/new"
