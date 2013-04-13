@@ -13,7 +13,9 @@ class CabinetsController < ApplicationController
   # GET /cabinets/1
   # GET /cabinets/1.json
   def show
-    @cabinet = Cabinet.find(params[:id])
+    puts "Help"
+    #@cabinet = Cabinet.find(params[:id])
+    @cabinet = current_cabinet
 
     respond_to do |format|
       format.html # show.html.erb

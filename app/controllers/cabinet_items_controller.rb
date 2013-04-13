@@ -40,6 +40,7 @@ class CabinetItemsController < ApplicationController
   # POST /cabinet_items
   # POST /cabinet_items.json
   def create
+    @cabinet = current_cabinet
     @cabinet_item = CabinetItem.new(params[:cabinet_item])
 
     respond_to do |format|
