@@ -1,4 +1,7 @@
 DrinkMixer::Application.routes.draw do
+  resources :cabinet_items
+
+
   resources :ingredients
 
 
