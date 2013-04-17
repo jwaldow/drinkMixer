@@ -13,17 +13,16 @@
 	</div>
 
 	<div id="side_bar">
-	<% if session[:user_id] %>
-		<% @user = User.find_by_id(session[:user_id]) %>
-		<h2>Greeting today <%= @user.username %></h2>
+	<% if current_user %>
+		<h2>Greeting today <%= current_user.username %></h2>
 		<br />
 		<%= link_to 'Users' , users_path %><br />
 		<br />
-		<%= link_to 'My Cabinet' , cabinet_path %><br />
+		<%= link_to 'My Cabinet' , cabinet_path(current_user.cabinet) %><br />
 		<%= button_to 'Logout' , logout_url, :method => :delete %>
 	<% else %>
 		<br />
-		<%= button_to 'Log In' , login_url %><br />
+		<%= button_to 'Log In' , login_url, :method => :get %><br />
 		<br />
 		<%= button_to 'Register' , new_user_path, :method => :get %><br />
 	<% end %>

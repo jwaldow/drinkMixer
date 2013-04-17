@@ -15,7 +15,7 @@ class CabinetsController < ApplicationController
   def show
     puts "Help"
     #@cabinet = Cabinet.find(params[:id])
-    @cabinet = current_cabinet
+    @cabinet = current_user.cabinet
 
     respond_to do |format|
       format.html # show.html.erb
@@ -23,8 +23,8 @@ class CabinetsController < ApplicationController
     end
   end
 
-  # GET /cabinets/new
-  # GET /cabinets/new.json
+  # GET /cabinets/GET
+  # new /cabinets/new.json
   def new
     @cabinet = Cabinet.new
 

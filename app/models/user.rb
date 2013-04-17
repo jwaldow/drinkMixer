@@ -24,11 +24,15 @@ class User < ActiveRecord::Base
   attr_accessor :password_confirmation
   attr_reader   :password
 
+  has_one :cabinet
+
   validate  :password_must_be_present
 
   has_attached_file :pic
 
   has_attached_file :attach  
+
+  after_save :create_new_cabinet
   
   def User.authenticate(name, password)
     if user = find_by_username(name)
@@ -61,4 +65,11 @@ class User < ActiveRecord::Base
     def generate_salt
       self.salt = self.object_id.to_s + rand.to_s
     end
+
+    def create_new_cabinet
+      unless self.cabinet
+        self.build_cabinet.save!
+      end
+    end
+    
 end

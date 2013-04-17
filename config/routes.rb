@@ -21,7 +21,7 @@ DrinkMixer::Application.routes.draw do
     post 'login' => :create
     delete 'logout' => :destroy
   end
-
+  match "/logout" => "sessions#destroy"
   resources :users
 
   #get "users#index"
