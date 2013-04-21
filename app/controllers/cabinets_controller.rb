@@ -13,12 +13,12 @@ class CabinetsController < ApplicationController
   # GET /cabinets/1
   # GET /cabinets/1.json
   def show
-    puts "Help"
+    
     #@cabinet = Cabinet.find(params[:id])
     @cabinet = current_user.cabinet
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html  # show.html.erb
       format.json { render json: @cabinet }
     end
   end

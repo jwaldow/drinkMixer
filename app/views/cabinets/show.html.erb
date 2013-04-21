@@ -1,4 +1,14 @@
 <p id="notice"><%= notice %></p>
 <h1>My Cabinet</h1>
 
+<div id="ingredient_list">
+<ul>
+	<% Ingredient.where(:cabinet_id => current_cabinet.id).each do |ingredient| %>
+	<li><%= ingredient.brand %> | <%= ingredient.ingredient_type %></li>
+	<% end %>
+</ul>
+</div>
+
 <%= link_to 'New Ingredient', new_ingredient_path %>
+<%= button_to 'Make ME a Drink' %>
+<p> * Make ME a Drink feature not implemented yet </p>

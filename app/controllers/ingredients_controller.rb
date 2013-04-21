@@ -41,10 +41,11 @@ class IngredientsController < ApplicationController
   # POST /ingredients.json
   def create
     @ingredient = Ingredient.new(params[:ingredient])
+    @ingredient.cabinet_id = current_cabinet.id 
 
     respond_to do |format|
       if @ingredient.save
-        format.html { redirect_to @ingredient, notice: 'Ingredient was successfully created.' }
+        format.html { redirect_to @ingredient, notice: "Ingredient was successfully created. #{@ingredient.cabinet_id}" }
         format.json { render json: @ingredient, status: :created, location: @ingredient }
       else
         format.html { render action: "new" }
