@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   #before_filter :authorize
   protect_from_forgery
-  helper_method :current_user
+  helper_method :current_user, :current_cabinet
 
   protected
 
@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
 
   def current_user
     session[:user_id] ? User.find(session[:user_id]) : nil
+  end
+
+  def current_cabinet
+    current_user ? current_user.cabinet : nil
   end
 
 end
