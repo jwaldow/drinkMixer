@@ -31,5 +31,15 @@
 	padding-left: 1em;
 	padding-bottom: 1em;
 	width: 16em;
+	min-height: 100%;
+	position: relative;
+ }
+
+ #joke {
+ 	background: #A60303;
+ 	position: absolute;
+ 	bottom: 0;
+ 	width: 100%;
+ 	height: 100px;
  }
 

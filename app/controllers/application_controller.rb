@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   #before_filter :authorize
   protect_from_forgery
-  helper_method :current_user, :current_cabinet
+  helper_method :current_user, :current_cabinet, :random_joke
 
   protected
 
@@ -19,4 +19,7 @@ class ApplicationController < ActionController::Base
     current_user ? current_user.cabinet : nil
   end
 
+  def random_joke
+    Joke.find(:one, :from => "/jokes/random")
+  end
 end
